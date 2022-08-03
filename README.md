@@ -1,2 +1,2 @@
-# raretool
+# Raretool
 DHook tool
