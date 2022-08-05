@@ -1,5 +1,6 @@
 from dhooks import Webhook as w
 from os import system as s
+from time import sleep
 
 def statuscheck():
   try:
@@ -25,6 +26,14 @@ def attacks():
       elif manage == 2:
         changes = input("Changes: ")
         hook.modify(changes)
+    elif attack == 3:
+      while ex == 0:
+        msg = input("Message: ")
+        if msg == "exit":
+          ex == 1
+      hook.send(msg)
+
+ex = 0
 dad = "gone"
 title = """
     ____                  __              __
@@ -35,6 +44,7 @@ title = """
 """
 
 while dad == "gone":
+  sleep(1.5)
   s("cls")
   print(title)
   print("Remember to set the hook url")
@@ -42,7 +52,7 @@ while dad == "gone":
   menu = int(input(">] "))
   if menu == 1:
     hook = w(input("Paste URL: "))
-    print("Hook set")
+    print("Hook set:" + str(hook))
   elif menu == 2:
     statuscheck()
   elif menu == 3:
